@@ -1,0 +1,580 @@
+.header {
+  height: var(--header-height);
+  background-image: linear-gradient(0, #fd5f32, #f6442e);
+}
+.header__navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.header__navbar--list {
+  list-style: none;
+  margin: 4px 0 0 0;
+  min-height: 26px;
+}
+.header__navbar--item {
+  margin: 0 8px;
+  position: relative;
+}
+.header__navbar--item-has-notify:hover .header__notify {
+  display: block;
+}
+.navbar--item-has-qr:hover .header__qr {
+  display: block;
+}
+.header__navbar--item,
+.navbar--item-link {
+  display: inline-block;
+  font-size: 1rem;
+  color: var(--white-color);
+  text-decoration: none;
+  font-weight: 250;
+}
+.header__navbar--item:hover,
+.navbar--item-link:hover,
+.navbar--title-pointer:hover {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+.header__navbar--item,
+.navbar--item-link,
+.navbar__icon-link {
+  display: inline-flex;
+  align-items: center;
+}
+.navbar--item-strong {
+  font-weight: 400;
+}
+.navbar--item-seperate::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-left: 1px solid #fb9086;
+  right: -10px;
+  top: 50%;
+  height: 16px;
+  transform: translateY(-50%);
+}
+.navbar__icon-link {
+  color: var(--white-color);
+  text-decoration: none;
+}
+.navbar__icon {
+  font-size: 1.2rem;
+  margin: 0 6px;
+}
+.navbar--title-nopointer {
+  cursor: text;
+  color: var(--white-color);
+}
+/*Header QR code*/
+.header__qr {
+  background-color: var(--white-color);
+  width: 186px;
+  position: absolute;
+  left: 0;
+  top: 120%; /*cao = thẻ chưa nó*/
+  padding: 8px;
+  border-radius: 2px;
+  display: none;
+  animation: fadeIn ease-in 0.3s;
+}
+.header__qr::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 100%; /*=QR*/
+  top: -17px;
+  left: 0;
+  display: block;
+}
+.header__qr--img {
+  /*The image will fit ínide the header tag*/
+  width: 100%;
+}
+.header__qr--apps {
+  display: flex;
+  justify-content: space-around;
+}
+.header__qr--download-img {
+  height: 16px;
+}
+.header__qr--link {
+  text-decoration: none;
+}
+.header__qr--link:nth-child(1) {
+  margin-left: 10x;
+}
+.header__qr--link:nth-child(2) {
+  margin-right: 11px;
+}
+/*header-notification */
+.header__notify {
+  z-index: 3;
+  position: absolute;
+  background-color: var(--white-color);
+  width: 400px;
+  top: 120%; /**/
+  right: 0;
+  border: 1px solid #d3d3d3;
+  animation: headerNotifyGrowth ease-in 0.2s;
+  transform-origin: calc(100%-20px) top;
+  /*nói cho browser bt cái thuộc tính j sẽ thay đổi */
+  will-change: opacity, transform;
+  display: none;
+}
+.header__notify::before {
+  content: "";
+  border: 20px solid;
+  border-color: transparent transparent var(--white-color) transparent;
+  position: absolute;
+  right: 12px;
+  top: -30px;
+}
+.header__notify::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: -16px;
+  width: 110px;
+  height: 22px;
+}
+@keyframes headerNotifyGrowth {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /*trở về kích thức của nó*/
+  }
+}
+.header__notify-header {
+  height: 30px;
+  background-color: var(--white-color);
+  cursor: text;
+}
+.header__notify-header h3 {
+  color: #888;
+  font-weight: 300;
+  font-size: 1rem;
+  /* line-height: 40px; */
+  margin-left: 20px;
+}
+.header__notify-list {
+  padding-left: 0;
+}
+.header__notify-item {
+}
+.header__notify-item:hover {
+  background-color: #f7f7f7;
+}
+.header__notify-item--viewed {
+  background-color: rgba(238, 75, 43, 0.1);
+}
+.header__notify--link {
+  display: flex;
+  padding: 9px;
+  text-decoration: none;
+}
+.header__notify-img {
+  width: 48px;
+  object-fit: contain;
+}
+.header__notify--info {
+  flex: 1;
+  margin-left: 12px;
+}
+.header__notify--name {
+  display: block;
+  color: var(--black-color);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2rem;
+}
+.header__notify--desc {
+  font-size: 12px;
+  color: #756f6e;
+}
+.header__notify--footer {
+  display: flex;
+  padding: 9px;
+}
+.header__notify--footer-btn {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 4px 16px;
+  text-align: center;
+  width: 100%;
+}
+.auth__form {
+  background-color: var(--white-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.auth__form--container {
+  padding: 0 32px;
+}
+.auth__form--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  margin-top: 10px;
+}
+.auth__form--heading {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--text-color);
+}
+.auth__form--switch-btn {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+.auth__form--form {
+}
+.auth__form--group {
+}
+.auth__form--input {
+  width: 100%;
+  height: 40px;
+  margin-top: 16px;
+  padding: 0 12px;
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid var(--border-color);
+}
+.auth_-form--input {
+  border-color: #888;
+}
+.auth__form--aside {
+  margin-top: 30px;
+}
+.auth__form--policy-text {
+}
+.auth__form--text-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.auth__form--controls {
+  margin-top: 80px;
+  display: flex;
+  justify-content: flex-end;
+}
+.auth__form--socials {
+  padding: 16px 36px;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  margin-top: 20px;
+}
+.auth__form--controls-back {
+  margin-right: 8px;
+}
+.auth__form--socials-title {
+  margin: 0 32px;
+}
+.auth__form--help {
+  display: flex;
+  justify-content: flex-end;
+}
+.auth__form--help-link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #939393;
+}
+.auth__form--seperate {
+  display: block;
+  margin: 0 16px;
+  border-left: 1px solid var(--border-color);
+  height: 20px;
+}
+.auth__form--help-forgot {
+  color: var(--primary-color);
+}
+/*Header with search */
+.header__with--search {
+  display: flex;
+  margin: 0 48px;
+  align-items: center; /*cross asis*/
+  height: var(--header-with-search-height);
+}
+.header__logo {
+  width: 200px;
+}
+.header__logo--img {
+  width: 150px;
+}
+.header__search {
+  height: 40px;
+  background-color: var(--white-color);
+  flex: 1;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+}
+.header__search--input-wrap {
+  flex: 1; /*Input will take up all the width on íts owm because its father is a flex container */
+  height: 100%;
+}
+.header__search--input {
+  width: 100%; /*eat according to the contaner wrap tag*/
+  height: 100%; /*input sẽ tự chiếm hết chiều ngang vì cha là container flex*/
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: var(--text-color);
+  padding: 0 16px;
+  border-radius: 2px;
+}
+.header__search--select {
+  padding-left: 16px;
+  display: block;
+  height: 20px;
+  border-left: 1px solid var(--border-color);
+  top: 0;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1px;
+}
+.header__search--select:hover .header__search--option {
+  display: block;
+}
+.header__search--select-label {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+.header__search--select-icon {
+  color: #766e6e;
+  font-size: 0.8rem;
+  margin: 0 16px;
+  position: relative;
+  top: 2px;
+}
+.header__search--btn {
+  border: none;
+  background-color: var(--primary-color);
+  height: 34px;
+  width: 60px;
+  border-radius: 2px;
+  margin-right: 3px;
+  outline: none;
+}
+.header__search--btn:hover {
+  cursor: pointer;
+  background-color: #f87358;
+}
+.header__search--btn-icon {
+  color: var(--white-color);
+}
+.header__search--option {
+  /*mặc định thẻ ul has padding, so we have to css to remove it */
+  padding-left: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 140px;
+  list-style: none;
+  box-shadow: 0 1px 2px #e9e6e6;
+  border-radius: 2px;
+  display: none;
+  animation: fadeIn ease-in 0.2s;
+  /*to make border-radius work, the chld tags that poke out will be hidden
+    giúp cho Border-radius hoạt động, những thằng con mà chọc ra ngoài sẽ bị ẩn đi.
+    */
+} /*horizontal: 0. vertical: 0, blur */
+.header__search--option::after {
+  content: "";
+  position: absolute;
+  display: block;
+  right: 0;
+  width: 100%;
+  height: 23px;
+  top: -20px;
+}
+.header__search--option-item {
+  background-color: var(--white-color);
+  padding: 8px 8px;
+}
+.header__search--option-item:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.header__search--option-item:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.header__search--option-item:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+.header__search--option-item span {
+  /*label*/
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-left: 8px;
+}
+.header__search--option-item i {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  margin: 0 5px 0 8px;
+  display: none;
+}
+.header__search--option-item-active i {
+  display: inline-block;
+}
+.header__search--input:focus ~ .header__search--history {
+  display: block;
+}
+/*search history*/
+.header__search--input-wrap {
+  width: 100%;
+  position: relative;
+}
+.header__search--history {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  width: calc(100% - 16px);
+  background-color: var(--white-color);
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgb(200, 193, 193);
+  display: none;
+  overflow: hidden;
+}
+.header__search--history-heading {
+  font-size: 1rem;
+  margin: 6px 12px;
+  color: rgb(192, 192, 192);
+  font-weight: 350;
+}
+.header__search--history-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 6px 0 0;
+}
+.heaer__search--history-item {
+  height: 38px;
+  padding: 0 12px;
+}
+.heaer__search--history-item:hover {
+  cursor: pointer;
+  background-color: #fafafa;
+}
+.heaer__search--history-item a {
+  color: var(--text-color);
+  text-decoration: none;
+  line-height: 38px;
+  display: block;
+}
+.header__cart {
+  text-align: center;
+  width: 150px;
+  margin-top: 0px;
+  right: 4px;
+}
+.header__cart--wrap {
+  display: inline-block;
+  padding: 4px 12px;
+  position: relative;
+  cursor: pointer;
+}
+.header__cart-icon {
+  color: var(--white-color);
+  font-size: 1.6rem;
+
+}
+.header__cart--list {
+  cursor: default;
+  position: absolute;
+  right: 135px;
+  top: 100px;
+  background-color: var(--white-color);
+  width: 400px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
+  display: none;
+  animation: fadeIN ease-in 0.2s;
+}
+.header__cart--wrap::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 34px;
+  width: 138%;
+  top: 11px;
+  right: 1px;
+}
+.header__cart--list::after {
+  content: "";
+  z-index: 6;
+  position: absolute;
+  right: 9px;
+  top: -29px;
+  border-width: 17px 20px;
+  border-style: solid;
+  border-color: transparent transparent var(--white-color) transparent;
+}
+.header__cart--list-no-cart {
+  padding: 24px 0;
+  
+}
+.header__cart--list-no-cart .header__cart-no-cart-img, 
+.header__cart--list-no-cart .header__cart-list-no-cart-msg{
+  display: block;
+  margin-left: auto;
+  z-index: 6;
+  margin-right: auto;
+}
+
+.header__cart-no-cart-img {
+  width: 54%;
+  display: none;
+}
+.header__cart-list-no-cart-msg {
+  display: none;
+  font-size: 1.1rem;
+  margin-top: 14px;
+  color: var(--text-color);
+
+}
+.header__cart--wrap:hover ~ .header__cart--list {
+  display: block;
+  
+}
+
+/*nth-child= first-child*/
+/*hide block:
+step 1: display: none; container header qr_code
+step 2: go to the tag where the hover will show the QR code block 
+.tag:hover .container { display: block;  }
+use psuedo class
+container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -16px;
+    width: 110px;
+    height: 22px;
+*/
+/*ease: slowly
+ease-in: slow - fast
+ease-in-out: slow-fast-slow
+ease-out: fast-slow
+*/
+/*4 value: top right bottom left
+ 3 value: top left_right bottom
+ */
+/*offset y : run down , vertical */
+/*history search 
+
+horizontal: main axis
+vertical : cross axis
+*/
+/*element1~element2	p ~ ul	Selects every <ul> element that is preceded by a <p> element
+
+*/
