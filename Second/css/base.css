@@ -74,7 +74,7 @@ html {/*hack 12px, default: 100% : 16px*/
 }
 /*btn style*/
 .btn {
-    min-width: 142px;
+    min-width: 124px;
     height: 34px;
     border: none;
     border-radius: 2px;

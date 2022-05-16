@@ -120,8 +120,23 @@
                             </a>
                             <a href="" class="navbar--item-link">Help</a>
                         </li>
-                        <li class="header__navbar--item navbar--item-strong navbar--item-seperate">Register</li>
-                        <li class="header__navbar--item navbar--item-strong">Login</li>
+                        <!-- <li class="header__navbar--item navbar--item-strong navbar--item-seperate">Register</li>
+                        <li class="header__navbar--item navbar--item-strong">Login</li> -->
+                        <li class="header__navbar--item header__navbar--user">
+                            <img src="./img/lissa_face.jpg" alt="" class="header__navbar--user-img">
+                            <span class="header__navbar--user-name">Lissa Kim</span>
+                            <ul class="header__navbar--user-menu">
+                                <li class="header__navbar--user-item">
+                                    <a href="" class="header__navbar--user-link">My account</a>
+                                </li>
+                                <li class="header__navbar--user-item">
+                                    <a href="" class="header__navbar--user-link">Purchase invoice</a>
+                                </li>
+                                <li class="header__navbar--user-item">
+                                    <a href="" class="header__navbar--user-link">Log out </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!--header with search -->
@@ -176,13 +191,78 @@
                     <div class="header__cart">
                         <div class="header__cart--wrap">
                             <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                            <span class="header__cart--notice">3</span>
+                            <div class="header__cart--list ">
+                                <img src="./img/cart_img.png" alt="" class="header__cart-no-cart-img">
+                                <span class="header__cart-list-no-cart-msg">
+                                    No product yet
+                                </span>
+                                <h4 class="header__cart--heading">The product added</h4>
+                                <ul class="header__cart--list-item">
+                                    <!--cart item -->
+                                    <li class="header__cart--item">
+                                        <img src="https://tse4.mm.bing.net/th?id=OIP.1gZDm4nSzS_OpZMXc1XVpgHaHa&pid=Api&P=0&w=164&h=164" alt="" class="header__cart-img">
+                                        <div class="header__cart--item-info">
+                                            <div class="header__cart--item-head">
+                                                <h5 class="header__cart--item-name">The hottest, coolest Korean shirt.</h5>
+                                                <div class="header--card--item-price-wrap">
+                                                    <span class="header__cart--item-price">2.000$</span>
+                                                    <span class="header__cart--item-multiply">x</span>
+                                                    <span class="header__cart--item-quantity">3</span>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart--item-body">
+                                                <span class="header__cart--item-description">
+                                                    Classification of goods: Silver
+                                                </span>
+                                                <span class="header__cart--item-remove">Delete</span>
+                                            </div>
+                                        </div>link
+                                    </li>
+                                    <li class="header__cart--item">
+                                        <img src="https://cf.shopee.vn/file/99f91fe944f5edc9d09ddf74743073e1" alt="" class="header__cart-img">
+                                        <div class="header__cart--item-info">
+                                            <div class="header__cart--item-head">
+                                                <h5 class="header__cart--item-name">Korean basic men's long-sleeved shirt</h5>
+                                                <div class="header__cart--item-price-wrap">                                 
+                                                    <span class="header__cart--item-price">1500$</span>
+                                                    <span class="header__cart--item-multiply">x</span>
+                                                    <span class="header__cart--item-quantity">2</span>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart--item-body">
+                                                <span class="header__cart--item-description">
+                                                    Classification of goods: Black
+                                                </span>
+                                                <span class="header__cart--item-remove">Delete</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="header__cart--item">
+                                        <img src="./shirt_t.png" alt="" class="header__cart-img">
+                                        <div class="header__cart--item-info">
+                                            <div class="header__cart--item-head">
+                                                <h5 class="header__cart--item-name">Best shirt </h5>
+                                                <div class="header__cart--item-price-wrap">
+                                                    <span class="header__cart--item-price">2000$</span>
+                                                    <span class="header__cart--item-multiply">x</span>
+                                                    <span class="header__cart--item-quantity">4</span>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart--item-body">
+                                                <span class="header__cart--item-description">
+                                                    Classification of goods: White+ grey
+                                                </span>
+                                                <span class="header__cart--item-remove">Delete</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <button class="header__cart--view-cart btn btn--primary">
+                                    View cart
+                                </button>
+                            </div>
                         </div><!--No cart: header__cart--list-no-cart-->
-                        <div class="header__cart--list header__cart--list-no-cart">
-                            <img src="./img/cart_img.png" alt="" class="header__cart-no-cart-img">
-                            <span class="header__cart-list-no-cart-msg">
-                                No product.
-                            </span>
-                        </div>
                     </div>
                 </div>
                 <div class="header__navbar header__navbar--error">
@@ -195,7 +275,7 @@
             
         </div>
         
-        <footer class="footer">https://github.com/Chanyeon99/Draft.git
+        <footer class="footer">
 
         </footer>
         <!--modal layout -->
