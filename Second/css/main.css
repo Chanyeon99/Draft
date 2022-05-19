@@ -20,6 +20,9 @@
   display: flex;
   justify-items: center;
 }
+.header__navbar--user:hover .header__navbar--user-menu {
+  display: block;
+}
 .header__navbar--user-img {
   width: 22px;
   height: 22px;
@@ -39,28 +42,57 @@
   z-index: 1;
   border-radius: 2px;
   width: 160px;
-  height: 97px;
-  box-shadow: #6e6e6e 0 1px 5px 0px;
+  box-shadow: 0 1px 2px #e0e0e0;
+  display: none;
 }
 .header__navbar--user-item {
-  padding: 8px 16px;
+  
   font-weight: 300;
   background: var(--white-color);
 }
-.header__navbar--user-link {
+.header__navbar--user-item:hover {
+  background-color: rgb(236, 236, 236);
+}
+.header__navbar--user-seperate {
+  border-top: 1px solid rgba(0, 0, 0 , 0.05);
+}
+.header__navbar--user-item a {
   text-decoration: none;
   font-weight: 300;
   color: var(--text-color);
+  font-size: 0.9rem;
+  padding: 8px 16px;/*thẻ a ko có tác dụng hiển thị*/
+  display: block;
+}
+.header__navbar--user-item a:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.header__navbar--user-item a:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.header__navbar--user-item a:hover {
+  background-color: #e9e6e6;
 }
 .header__navbar--user-menu::before {
   content: "";
-  border-color: transparent transparent red transparent;
-  border: 20px solid;
-  display: block;
+  border-color: transparent transparent var(--white-color) transparent;
+  border-style: solid;
+  border-width: 14px;
   right: 16px;
-  top: -13px;
-  background-color: black;
+  top: -27px;
   position: absolute;
+  
+}
+.header__navbar--user-menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 3px;
+  top: -11px;
+  width: 62px;
+  height: 18px;
 }
 .header__navbar--item-has-notify:hover .header__notify {
   display: block;
@@ -165,7 +197,7 @@
   right: 0;
   border: 1px solid #d3d3d3;
   animation: headerNotifyGrowth ease-in 0.2s;
-  transform-origin: calc(100%-20px) top;
+  transform-origin: calc(100%-32px) top;
   /*nói cho browser bt cái thuộc tính j sẽ thay đổi */
   will-change: opacity, transform;
   display: none;
@@ -350,6 +382,10 @@
 .header__logo {
   width: 200px;
 }
+.header__logo--link {
+  color: transparent;
+  text-decoration: none;
+}
 .header__logo--img {
   width: 150px;
 }
@@ -420,7 +456,7 @@
   padding-left: 0;
   position: absolute;
   right: 0;
-  top: 100%;
+  top: calc(100%- 2px);
   width: 140px;
   list-style: none;
   box-shadow: 0 1px 2px #e9e6e6;
@@ -674,7 +710,130 @@
 .header__cart--view-cart:hover {
   background: #f05d41;
 }
+/*app container*/
+.container {
+  background: #f5f5f5;
+}
+.app__content{
+  padding-top: 24px;
+}
+.category {
+  background: var(--white-color);
+  border-radius: 2px;
+}
+.category__heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 12px 16px; 
+  margin-top: 0;
+}
+.category__heading--icon {
+  font-size: 1.2rem;
+}
+.category__list {
+  list-style: none;
+  padding-left: 4px;
+  margin-left: 10px;
+}
+.category__item {
+  
+}
+.category__item-active .category__item--link{
+  color: var(--primary-color);
+}
+.category__item-active .category__item--link::before{
+  position: absolute;
+  border: 4px solid;
+  content: "";
+  top: 50%;/*50% of a tag */
+  transform: translateY(calc(50% - 8px ));
+  left: 8px;
+  border-color: transparent transparent transparent var(--primary-color) ;
+}
+.category__item--link {
+  font-weight: 400;
+  display: block;
+  padding: 4px 16px;
+  text-decoration: none;
+  color: var(--text-color);
+  position: relative;
+  font-size: 1rem;
+  transition: right linear 0.1s;
+  
+}
+.category__item--link:hover {
+  right: -4px;
+  color: var(--primary-color);
+}
+/*Home filter */
+.home__filter {
+  border-radius: 2px;
+  padding: 16px 22px;
+  align-items: center;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.home__filter--label{
+  color: #555555;
+  font-size: 14px;
+  margin-right: 16px;
+}
+.home__filter--btn {
+  margin-right: 12px;
+  min-width: 12px;
+}
+.price{
 
+}
+.select-input__label {
+  
+
+}
+.home__filter--page {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+}
+.home__filter--page-number {
+  margin-right: 22px;
+}
+.home__filter--page-current {
+  color: var(--primary-color);
+
+}
+.home__filter--page-control {
+  overflow: hidden;
+  border-radius: 2px;
+  display: flex;
+  width: 72px;
+  height: 36px;
+
+}
+.home__filter--page-btn {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: var(--white-color);
+  text-decoration: none;
+  justify-content: center;
+}
+.home__filter--page-btn:first-child {
+  border-right: 1px solid #dcdcdc;
+
+}
+.home__filter--page-icon {
+  font-size: 13px;
+  font-weight: 700;
+}
+.home__filter--page-btn-disabled {
+  color: #cccccc;
+  cursor: default;
+}                             
+.home__filter--page-btn-disabled .home__filter--page-icon {
+  color: #ccc;
+}
 /*nth-child= first-child*/
 /*hide block:
 step 1: display: none; container header qr_code

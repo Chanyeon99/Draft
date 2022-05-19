@@ -24,11 +24,24 @@ html {/*hack 12px, default: 100% : 16px*/
 }
 .grid__full-width {
     width: 100%;
-
 }
 .grid__row {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+/*test*/
+.grid__column-2 {
+    width: 16,6667% !important;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.grid__column-10 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 83,3334% !important;
+    flex: 1;/*set remaining width*/
 }
 /*animation */
 @keyframes fadeIn {
@@ -83,7 +96,7 @@ html {/*hack 12px, default: 100% : 16px*/
     cursor: pointer;
     padding: 0 12px;
     line-height: 1.6rem;
-
+    background: var(--white-color);
 }
 .btn.btn--normal:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -131,5 +144,50 @@ html {/*hack 12px, default: 100% : 16px*/
     color: #666;
     background-color: var(--white-color);
 }
+/*selection*/
+.select-input {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 220px;
+    height: 34px;
+    padding: 0 12px;
+    position: relative;
+    border-radius: 2px;
+    background-color: var(--white-color);
+}
+.select-input:hover .select-input__list{
+    display: block;
+}
+.select-input__label {
+    
+}
+.select-input__list {
+    position: absolute;
+    top: 23px;
+    right: 0;
+    left: 0;
+    list-style: none;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    display: none;
+    padding: 8px 16px;
+
+}
+.select-input__item {
+
+}
+.select-input__link {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+}
+.select-input__link:hover {
+    color: var(--primary-color);
+}
+
 /*linear : đều*/
 /*Svg is a vector image, when zoomed in and out wihtout breaking the image */
