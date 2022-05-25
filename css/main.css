@@ -46,7 +46,6 @@
   display: none;
 }
 .header__navbar--user-item {
-  
   font-weight: 300;
   background: var(--white-color);
 }
@@ -54,14 +53,14 @@
   background-color: rgb(236, 236, 236);
 }
 .header__navbar--user-seperate {
-  border-top: 1px solid rgba(0, 0, 0 , 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .header__navbar--user-item a {
   text-decoration: none;
   font-weight: 300;
   color: var(--text-color);
   font-size: 0.9rem;
-  padding: 8px 16px;/*thẻ a ko có tác dụng hiển thị*/
+  padding: 8px 16px; /*thẻ a ko có tác dụng hiển thị*/
   display: block;
 }
 .header__navbar--user-item a:first-child {
@@ -83,7 +82,6 @@
   right: 16px;
   top: -27px;
   position: absolute;
-  
 }
 .header__navbar--user-menu::after {
   content: "";
@@ -147,6 +145,7 @@
 }
 /*Header QR code*/
 .header__qr {
+  z-index: 1;
   background-color: var(--white-color);
   width: 186px;
   position: absolute;
@@ -156,6 +155,7 @@
   border-radius: 2px;
   display: none;
   animation: fadeIn ease-in 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 .header__qr::before {
   content: "";
@@ -516,6 +516,7 @@
   position: relative;
 }
 .header__search--history {
+  z-index: 1;
   position: absolute;
   top: calc(100% + 2px);
   left: 0;
@@ -568,12 +569,13 @@
   font-size: 1.6rem;
 }
 .header__cart--list {
+  z-index: 1;
   cursor: default;
   position: absolute;
   right: -4px;
   top: calc(100% + 13px);
   background-color: var(--white-color);
-  width: 450px;
+  width: 420px;
   border-radius: 2px;
   box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
   display: none;
@@ -643,6 +645,8 @@
 .header__cart--list-item {
   padding-left: 0px; /*default : ul tag have padding = 40*/
   list-style: none;
+  height: 50vh;/*meaning 50% of browser height, view port height*/
+  overflow: auto;/*scroll*/
 }
 .header__cart--item {
   display: flex;
@@ -668,10 +672,17 @@
   justify-content: space-between;
 }
 .header__cart--item-name {
+  flex: 1;
   font-size: 1rem;
+  line-height: 1.25rem;
   font-weight: 500;
   color: var(--text-color);
   margin: 9px 0px;
+  text-align: left;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .header__cart--item-price {
   font-size: 1rem;
@@ -714,7 +725,7 @@
 .container {
   background: #f5f5f5;
 }
-.app__content{
+.app__content {
   padding-top: 24px;
 }
 .category {
@@ -722,10 +733,11 @@
   border-radius: 2px;
 }
 .category__heading {
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 12px 16px; 
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 16px 0;
   margin-top: 0;
+  text-transform: uppercase;
 }
 .category__heading--icon {
   font-size: 1.2rem;
@@ -733,22 +745,23 @@
 .category__list {
   list-style: none;
   padding-left: 4px;
-  margin-left: 10px;
 }
 .category__item {
-  
+  position: relative;
 }
-.category__item-active .category__item--link{
-  color: var(--primary-color);
-}
-.category__item-active .category__item--link::before{
-  position: absolute;
-  border: 4px solid;
+.category__item::before {
   content: "";
-  top: 50%;/*50% of a tag */
-  transform: translateY(calc(50% - 8px ));
-  left: 8px;
-  border-color: transparent transparent transparent var(--primary-color) ;
+  border-top: 1px solid #E1E1E1;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  position: absolute;
+}
+.category__item:first-child::before {
+  display: none;
+}
+.category__item-active .category__item--link {
+  color: var(--primary-color);
 }
 .category__item--link {
   font-weight: 400;
@@ -757,9 +770,10 @@
   text-decoration: none;
   color: var(--text-color);
   position: relative;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: right linear 0.1s;
-  
+  line-height: 2.3rem;
+  font-weight: 50;
 }
 .category__item--link:hover {
   right: -4px;
@@ -773,7 +787,7 @@
   display: flex;
   background-color: rgba(0, 0, 0, 0.04);
 }
-.home__filter--label{
+.home__filter--label {
   color: #555555;
   font-size: 14px;
   margin-right: 16px;
@@ -782,25 +796,18 @@
   margin-right: 12px;
   min-width: 12px;
 }
-.price{
-
-}
 .select-input__label {
-  
-
 }
 .home__filter--page {
   display: flex;
   align-items: center;
   margin-left: auto;
-
 }
 .home__filter--page-number {
   margin-right: 22px;
 }
 .home__filter--page-current {
   color: var(--primary-color);
-
 }
 .home__filter--page-control {
   overflow: hidden;
@@ -808,7 +815,6 @@
   display: flex;
   width: 72px;
   height: 36px;
-
 }
 .home__filter--page-btn {
   font-size: 14px;
@@ -821,7 +827,6 @@
 }
 .home__filter--page-btn:first-child {
   border-right: 1px solid #eeeeee;
-
 }
 .home__filter--page-icon {
   font-size: 13px;
@@ -830,9 +835,303 @@
 .home__filter--page-btn-disabled {
   color: #cccccc;
   cursor: default;
-}                             
+}
 .home__filter--page-btn-disabled .home__filter--page-icon {
   color: #ccc;
+}
+.home__product {
+  margin-bottom: 10px;
+}
+/*Product item */
+.home__product--item {
+  display: block;/*the reason: div tag has property: display=block while A tag doesn't have it */
+  text-decoration: none;
+  border-radius: 2px;
+  margin-top: 10px;
+  background-color: var(--white-color);
+  position: relative;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 0.1rem 0.2rem 0 rgb(0 0 0 / 10%);
+  /*horizontal: 0. vertical: 0, blur stand for : rgba(0, 0, 0, 0.1*/
+  transition: transform ease-in 0.1s;
+  /*biến đổi để khai báo khi có chuyển động sẽ tạo hoạt ảnh cho cái gì.
+  transition to declare when there is movement will create animationm for what
+  */
+  will-change: transform;
+}
+.home__product--item:hover {
+  box-shadow: 0 0.1rem 20px 0 rgb(0 0 0 / 5%);/*0, 0, 0, 0.05*/
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+.home__product--item-img {
+  padding-top: 100%; /*The width of the tag containing it*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.home__product--item-name {
+  margin: 10px 10px 6px;
+  font-size: 14px;
+  display: -webkit-box;
+  line-height: 18px;
+  font-weight: 400;
+  height: 36px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--text-color);
+  /* visibility: visible; */
+}
+.home__product--item-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap; /*If the number of characters of the price is too long and large to poke the outside of the card, the price will automatically move down the line */
+}
+.home__product--item-price-old {
+  font-size: 15px;
+  color: #666;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+.home__product--item-price-current {
+  font-size: 16px;
+  color: var(--primary-color);
+  margin-left: 10px;
+}
+.home__product--item-action {
+  display: flex;
+  margin: 8px 10px 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.home__product--item-heart {
+  font-size: 14px;
+}
+.home__product--item-heart--liked .home__product--item-like-fill {
+  display: inline-block;
+}
+.home__product--item-heart--liked .home__product--item-like-empty {
+  display: none;
+}
+.home__product--item-like-empty {
+}
+.home__product--item-like-fill {
+  display: none;
+  color: #f63d30;
+}
+.home__product--item-rating {
+  font-size: 1rem;
+  transform: scale(0.5);
+  margin: -1px 0 0 auto;
+  color: #d5d5d5;
+  transform-origin: right;
+  margin-left: auto;
+}
+.home__product--item__star--gold {
+  color: var(--star-gold-color);
+}
+.home__product--item-sold {
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+  margin-left: 7px; /*Margin because this element is a component sometimes has, sometimes not */
+}
+.home__product--item-origin {
+  display: flex;
+  color: #595959;
+  font-size: 12px;
+  font-weight: 300;
+  margin: 3px 10px 5px;
+  bottom: 3px;
+  position: relative;
+}
+.home__product--item-brand {
+  margin-right: auto; /*replace for justify-content: space-between;*/
+}
+.home__product--item-origin-name {
+}
+.home__product--item-favorite {
+  font-size: 12px;
+  position: absolute;
+  top: 10px;
+  left: -4px;
+  color: var(--primary-color);
+  background: currentColor;
+  font-weight: 500;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.home__product--item-favorite i {
+  font-size: 9px;
+  margin: 0 2px 0 5px;
+  line-height: 16px;
+  color: var(--white-color);
+}
+.home__product--item-favorite span {
+  margin-right: 3px;
+  color: var(--white-color);
+}
+.home__product--item-favorite::after {
+  content: "";
+  position: absolute;
+  border-top: 3px solid currentColor;
+  border-left: 3px solid transparent;
+  filter: brightness(60%); /*độ sáng*/
+  left: 0;
+  top: 16px;
+}
+.home__product--item-sale-off {
+  position: absolute;
+  line-height: 16px;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 212, 31, 0.94);
+  width: 40px;
+  text-align: center;
+  height: 36px;
+}
+.home__product--item-sale-off::after {
+  content: "";
+  position: absolute;
+  border-width: 0 20px 5px;
+  border-style: solid;
+  color: rgba(255, 212, 31, 0.94);
+  border-color: transparent currentColor transparent currentColor;
+  top: 36px;
+  right: 0;
+}
+.home__product--item-sale-off-percent {
+  font-size: 12px;
+  color: #ee4d2d;
+  position: relative;
+  top: 3px;
+}
+.home__product--item-sale-off-label {
+  font-size: 12px;
+  color: var(--white-color);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.pagination__item {
+  min-width: 40px;/*số trang sẽ increase, width will change*/
+  height: 30px;
+  margin: 0 12px;
+}
+.pagination__item--active .pagination__item--link {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+.pagination__item--active .pagination__item--link:hover {
+  background-color: #e86146;
+}
+.pagination__item--link {
+  display: block;/*because tag a hasn't display: block, so u must add display: block to set Width*/
+  color: #939393;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 30px;/*Center the height from top to bottom : line-height = height = 30px*/
+}
+.pagination__item--icon {
+
+}
+.home__product--pagination-distance {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+/*footer*/
+.footer{
+  padding-top: 12px;
+  border-top: 4px solid var(--primary-color);
+}
+.footer__heading {
+  font-size: 0.8rem;
+  color: #0000008a;
+  text-transform: uppercase;
+}
+.footer__list {
+  list-style: none;
+  padding-left: 0px;
+}
+.footer__list--item-link {
+  text-decoration: none;
+  color: #0000008a;
+  font-size: 0.75rem;
+  padding: 4px 0;/*Because a tag has't display: block, so U must add display: block to set padding */
+  display: block;
+  align-items: center;
+  display: flex;
+}
+.footer__list--item-link:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+ }
+.footer__payment {
+
+}
+.footer__background-shopeepay{
+  padding-left: 0;
+}
+.footer__shopeepay-img {
+
+}
+.footer__payment {
+
+}
+.footer__item--icon {
+  margin-right: 8px;
+}
+.footer__img-item {
+  width: 55px;
+  height: 22px;
+  background-position: 83.4061135371179% 5.0761421319796955%;
+}
+.footer__background-shopeepay{
+  list-style: none;
+  display: flex;
+}
+.footer__download {
+  display: flex;
+}
+.footer__download-qr {
+  width: 80px;
+  height: 80px;
+  border: 1px solid var(--border-color);
+}
+.footer__download-apps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 16px;
+}
+.footer__download--apps-link{
+  text-decoration: none;
+}
+.footer__download--app-img {
+  height: 20px;
+  font-size: 10px;
+  line-height: 16px
+}
+.footer__bottom{
+  background-color: #f5f5f5;
+  padding:12px 0px;
+  margin-top: 24px;
+}
+.footer__text {
+  color: #0000008a;
+  font-size: 0.875rem;
+  line-height: 18px;
+  text-align: center;
+  margin: 0;
 }
 /*nth-child= first-child*/
 /*hide block:
